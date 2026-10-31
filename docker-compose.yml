@@ -1,0 +1,13 @@
+services:
+  ministack:
+    image: ministackorg/ministack@sha256:ba06991f4d43671c76cb5303f6de227d332e368afb1beffef751205db7074e6a
+    ports:
+      - "4566:4566"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - REDIS_HOST=redis
+  redis:
+    image: redis:7-alpine@sha256:8da19c7399dca900c6822a1cf30f9d2285585e2c4b457ff4095b0f4500054d3f
+    ports:
+      - "6379:6379"
